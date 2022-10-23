@@ -35,7 +35,7 @@ const searchGoogle = async (searchQuery) => {
     waitUntil: "networkidle0",
     })
     .catch((err) => console.log("error loading url", err));
-    console.timeEnd("goto");
+    //console.timeEnd("goto");
 
     //wait for one of the div classes to load
     await page.waitForSelector('#mat-input-0');
