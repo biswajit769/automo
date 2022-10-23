@@ -31,7 +31,7 @@ const searchGoogle = async (searchQuery) => {
     await page.goto('https://web.saraloan.in/auth/login');
 
     //wait for one of the div classes to load
-    await page.waitForSelector('#mat-input-0');
+    await page.waitForSelector('input[formcontrolname=email]');
 
     console.log("search box selection done");
 
