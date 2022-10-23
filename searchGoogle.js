@@ -38,7 +38,7 @@ const searchGoogle = async (searchQuery) => {
     //console.timeEnd("goto");
 
     //wait for one of the div classes to load
-    await page.waitForSelector('#mat-input-0');
+    await page.waitForSelector('#kt_login > div > div > kt-login > div > div');
 
     console.log("search box selection done");
 
