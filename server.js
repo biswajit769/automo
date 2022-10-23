@@ -5,7 +5,7 @@ const ip = process.env.IP || '0.0.0.0';
 const port = process.env.PORT || 8080;
 
 //Import puppeteer function
-const processInvoice = require('./processInvoice');
+const searchGoogle = require('./searchGoogle');
 
 //Catches requests made to localhost:3000/search
 app.get('/search', (request, response) => {
@@ -16,7 +16,7 @@ app.get('/search', (request, response) => {
     //Do something when the searchQuery is not null.
     if (searchQuery != null) {
 
-        processInvoice(searchQuery)
+        searchGoogle(searchQuery)
             .then(results => {
                 //Returns a 200 Status OK with Results JSON back to the client.
                 response.status(200);
