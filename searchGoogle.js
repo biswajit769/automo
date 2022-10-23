@@ -36,7 +36,7 @@ const searchGoogle = async (searchQuery) => {
     })
     .catch((err) => console.log("error loading url", err));
     //console.timeEnd("goto");
-    await page.waitFor(1000)
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     //wait for one of the div classes to load
     await page.waitForSelector('#kt_login > div > div > kt-login > div > div');
