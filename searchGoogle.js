@@ -28,10 +28,10 @@ const searchGoogle = async (searchQuery) => {
     });
 
     //use google search url params to directly access the search results for our search query
-    await page.goto('https://web.saraloan.in/');
+    await page.goto('https://web.saraloan.in/auth/login');
 
     //wait for one of the div classes to load
-    await page.waitForSelector('input[id=mat-input-0]');
+    await page.waitForSelector('#mat-input-0');
 
     console.log("search box selection done");
 
