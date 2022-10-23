@@ -33,6 +33,8 @@ const searchGoogle = async (searchQuery) => {
     //wait for one of the div classes to load
     await page.waitForSelector('div[id=search]');
 
+    console.log("search box selection done");
+
     //Find all div elements with class 'bkWMgd'. These divs contain the information we need
     const searchResults = await page.$$eval('div[class=bkWMgd]', results => {
         //Array to hold all our results
