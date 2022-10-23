@@ -11,7 +11,7 @@ puppeteer.use(StealthPlugin());
 // puppeteer.use(AdblockerPlugin({blockTrackers: true}));
 
 const searchGoogle = async (searchQuery) => {
-    const browser = await puppeteer.launch({headless: false, args: ['--no-sandbox']});
+    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
 
     const page = await browser.newPage();
 
@@ -30,16 +30,21 @@ const searchGoogle = async (searchQuery) => {
     //use google search url params to directly access the search results for our search query
     //await page.goto('https://web.saraloan.in/auth/login');
 
-    await page
-    .goto("https://web.saraloan.in/auth/login", {
-    waitUntil: "networkidle0",
-    })
-    .catch((err) => console.log("error loading url", err));
-    //console.timeEnd("goto");
-    await new Promise((resolve) => setTimeout(resolve, 30000));
+    // await page
+    // .goto("https://web.saraloan.in/auth/login", {
+    // waitUntil: "networkidle0",
+    // })
+    // .catch((err) => console.log("error loading url", err));
+    // //console.timeEnd("goto");
+    // await new Promise((resolve) => setTimeout(resolve, 30000));
 
-    //wait for one of the div classes to load
-    await page.waitForSelector('#kt_login > div > div > kt-login > div > div');
+    // //wait for one of the div classes to load
+    // await page.waitForSelector('#kt_login > div > div > kt-login > div > div');
+
+    await Promise.all([
+        page.goto("https://web.saraloan.in/",{ waitUntil: 'networkidle0' }),
+        page.waitForSelector('#kt_login > div > div > kt-login > div > div')
+      ]);
 
     console.log("search box selection done");
 
