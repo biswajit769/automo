@@ -11,7 +11,7 @@ puppeteer.use(StealthPlugin());
 // puppeteer.use(AdblockerPlugin({blockTrackers: true}));
 
 const searchGoogle = async (searchQuery) => {
-    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
+    const browser = await puppeteer.launch({headless: false, args: ['--no-sandbox']});
 
     const page = await browser.newPage();
 
